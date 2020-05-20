@@ -113,6 +113,7 @@ function Selectors.runner(::Type{SetupBuildDirectory}, doc::Documents.Document)
             isdir(d) || mkdir(d)
         end
         for file in files
+	    println("File = ",file)
             src = normpath(joinpath(root, file))
             dst = normpath(joinpath(build, relpath(root, source), file))
 
@@ -134,6 +135,7 @@ function Selectors.runner(::Type{SetupBuildDirectory}, doc::Documents.Document)
             end
         end
     end
+    exit()
 
     # If the user hasn't specified the page list, then we'll just default to a
     # flat list of all the markdown files we found, sorted by the filesystem
